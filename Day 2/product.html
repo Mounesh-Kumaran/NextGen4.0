@@ -1,11 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NextGen — Nova 280 Smart Speaker</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1> It is a product page </h1>
+    <header class="header">
+        <h1>NextGen Store</h1>
+        <nav>
+            <a href="index.html">Home</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="card product-gallery" aria-label="Product gallery">
+            <div class="product-thumbs" id="thumbs">
+                <img src="https://picsum.photos/id/1060/600/600" alt="Nova speaker - charcoal" data-large="https://picsum.photos/id/1060/900/900" class="active"/>
+                <img src="https://picsum.photos/id/1061/600/600" alt="Nova speaker - sand" data-large="https://picsum.photos/id/1061/900/900" />
+                <img src="https://picsum.photos/id/1062/600/600" alt="Nova speaker - slate" data-large="https://picsum.photos/id/1062/900/900" />
+            </div>
+            <div class="main-image">
+                <img id="mainImg" src="https://picsum.photos/id/1060/900/900" alt="Nova 280 Smart Speaker in charcoal"/>
+            </div>
+        </section>
+
+        <aside class="card product-details">
+            <h2>Nova 280 Smart Speaker</h2>
+            <div class="rating-row">
+                <span class="rating">★★★★★</span> <span class="muted">4.8 · 2,341 reviews</span>
+            </div>
+            <p class="description">Powerful sound in a compact design with rich bass and room-filling audio. Compact, portable, and smart — the Nova 280 integrates voice assistants and Bluetooth 5.2 for seamless use.</p>
+
+            <div class="price-row">
+                <span class="price">$129</span>
+                <span class="sale">20% off</span>
+                <span class="savings">Was $159</span>
+            </div>
+
+            <div class="features">
+                <div class="feature">Bluetooth 5.2</div>
+                <div class="feature">12-hour battery</div>
+                <div class="feature">Voice assistant support</div>
+                <div class="feature">IPX4 splash-resistant</div>
+            </div>
+
+            <label for="color">Color</label>
+            <div style="margin-top:8px;display:flex;gap:8px;margin-bottom:8px;">
+                <button class="feature" aria-pressed="true">Charcoal</button>
+                <button class="feature" aria-pressed="false">Sand</button>
+                <button class="feature" aria-pressed="false">Slate</button>
+            </div>
+
+            <div class="actions">
+                <div class="qty" role="group" aria-label="Quantity">
+                    <button id="decrement" aria-label="Decrease quantity">−</button>
+                    <input id="qtyInput" type="text" value="1" aria-live="polite" aria-label="Quantity" />
+                    <button id="increment" aria-label="Increase quantity">+</button>
+                </div>
+                <button id="addCartBtn" class="btn">Add to Cart</button>
+                <button id="buyBtn" class="btn secondary">Buy Now</button>
+            </div>
+
+            <div class="tabs" style="margin-top:18px;">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="desc">Description</button>
+                    <button class="tab-btn" data-tab="specs">Specifications</button>
+                    <button class="tab-btn" data-tab="reviews">Reviews</button>
+                </div>
+
+                <div class="tab-content" id="desc">
+                    <p>The Nova 280 brings premium audio in a portable package. Designed for everyday listening and parties: 40W max output, DSP-enhanced bass and a smooth, balanced sound stage.</p>
+                </div>
+
+                <div class="tab-content" id="specs" style="display:none;">
+                    <div class="specs">
+                        <div><strong>Battery</strong><div class="muted">Up to 12 hours</div></div>
+                        <div><strong>Connectivity</strong><div class="muted">Bluetooth 5.2, AUX</div></div>
+                        <div><strong>Dimensions</strong><div class="muted">7.1 × 3.4 × 3.4 in</div></div>
+                        <div><strong>Weight</strong><div class="muted">1.2 lb</div></div>
+                        <div><strong>IP Rating</strong><div class="muted">IPX4 splash resistant</div></div>
+                        <div><strong>Voice assistant</strong><div class="muted">Google & Alexa Compatible</div></div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="reviews" style="display:none;">
+                    <div class="review">
+                        <strong>Sarah K.</strong> <span class="muted">— 5/5</span>
+                        <p class="muted">Amazing sound for the price. Portable and robust.</p>
+                    </div>
+                    <div class="review">
+                        <strong>Daniel P.</strong> <span class="muted">— 4/5</span>
+                        <p class="muted">Great battery life, could use slightly more treble at high volume.</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 NextGen — All rights reserved</p>
+    </footer>
+
+    <script>
+        // Thumbnail gallery
+        const thumbs = document.querySelectorAll('#thumbs img');
+        const mainImg = document.getElementById('mainImg');
+
+        thumbs.forEach(t => t.addEventListener('click', e => {
+            thumbs.forEach(img => img.classList.remove('active'))
+            t.classList.add('active');
+            const large = t.dataset.large || t.src;
+            mainImg.src = large;
+            mainImg.alt = t.alt;
+        }));
+
+        // Quantity controls
+        const decrement = document.getElementById('decrement');
+        const increment = document.getElementById('increment');
+        const qtyInput = document.getElementById('qtyInput');
+
+        function setQty(val){
+            const n = Math.max(1, Math.floor(Number(val) || 1));
+            qtyInput.value = n;
+            return n;
+        }
+
+        decrement.addEventListener('click', ()=> setQty(Number(qtyInput.value)-1));
+        increment.addEventListener('click', ()=> setQty(Number(qtyInput.value)+1));
+
+        qtyInput.addEventListener('input', ()=> setQty(qtyInput.value));
+
+        // Tabs
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const tabs = document.querySelectorAll('.tab-content');
+        tabButtons.forEach(btn => btn.addEventListener('click', () => {
+            tabButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const target = btn.dataset.tab;
+            tabs.forEach(t => t.style.display = t.id === target ? 'block' : 'none');
+        }));
+
+        // CTA events
+        const addCartBtn = document.getElementById('addCartBtn');
+        const buyBtn = document.getElementById('buyBtn');
+
+        addCartBtn.addEventListener('click', () => {
+            const n = setQty(qtyInput.value);
+            alert(`Added ${n} Nova 280 speaker(s) to your cart`);
+        });
+
+        buyBtn.addEventListener('click', () => {
+            const n = setQty(qtyInput.value);
+            alert(`Proceeding to checkout for ${n} Nova 280 speaker(s)`);
+            // For demo we just alert — add redirect to checkout page here
+        });
+
+    </script>
 </body>
 </html>
