@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Contact Us</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #1f2933, #111827);
+      color: #f9fafb;
+      padding: 20px;
+    }
+
+    .container {
+      background: #111827;
+      border-radius: 18px;
+      padding: 28px 26px;
+      max-width: 900px;
+      width: 100%;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+      border: 1px solid rgba(156, 163, 175, 0.2);
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 26px;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .left h1 {
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+    }
+
+    .left p.subtitle {
+      font-size: 0.95rem;
+      color: #9ca3af;
+      margin-bottom: 18px;
+    }
+
+    form {
+      margin-top: 10px;
+    }
+
+    .field-group {
+      margin-bottom: 14px;
+    }
+
+    .field-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    label {
+      display: block;
+      font-size: 0.82rem;
+      color: #d1d5db;
+      margin-bottom: 4px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 9px 11px;
+      border-radius: 10px;
+      border: 1px solid #374151;
+      background: #020617;
+      color: #f9fafb;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border 0.15s ease, box-shadow 0.15s ease,
+        background 0.15s ease;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #6b7280;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.6);
+      background: #020617;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 110px;
+      max-height: 220px;
+    }
+
+    .btn-row {
+      margin-top: 6px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      border: none;
+      cursor: pointer;
+      padding: 9px 20px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      background: linear-gradient(135deg, #3b82f6, #6366f1);
+      color: white;
+      box-shadow: 0 12px 25px rgba(37, 99, 235, 0.45);
+      transition: transform 0.12s ease, box-shadow 0.12s ease,
+        filter 0.12s ease;
+    }
+
+    button:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.05);
+      box-shadow: 0 16px 30px rgba(37, 99, 235, 0.55);
+    }
+
+    button:active {
+      transform: translateY(1px);
+      box-shadow: 0 8px 18px rgba(37, 99, 235, 0.4);
+    }
+
+    .note {
+      font-size: 0.75rem;
+      color: #9ca3af;
+    }
+
+    .right {
+      border-radius: 14px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      background: radial-gradient(circle at top, #111827, #020617);
+      padding: 18px 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .info-block h2 {
+      font-size: 1.1rem;
+      margin-bottom: 6px;
+    }
+
+    .info-block p {
+      font-size: 0.85rem;
+      color: #9ca3af;
+      line-height: 1.4;
+      margin-bottom: 8px;
+    }
+
+    .info-item {
+      margin-bottom: 6px;
+      font-size: 0.85rem;
+    }
+
+    .info-label {
+      color: #6b7280;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .info-value {
+      color: #e5e7eb;
+      font-weight: 500;
+    }
+
+    .social-row {
+      margin-top: 6px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .pill {
+      font-size: 0.78rem;
+      padding: 5px 10px;
+      border-radius: 999px;
+      border: 1px solid #374151;
+      color: #d1d5db;
+      background: #020617;
+      opacity: 0.9;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.75rem;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: rgba(16, 185, 129, 0.14);
+      color: #6ee7b7;
+      border: 1px solid rgba(16, 185, 129, 0.5);
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.35);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Left: Contact Form -->
+    <div class="left">
+      <h1>Contact Us</h1>
+      <p class="subtitle">
+        Have a question, project idea, or need help? Send us a message and
+        we’ll get back to you as soon as possible.
+      </p>
+
+      <form action="#" method="post">
+        <div class="field-row">
+          <div class="field-group">
+            <label for="name">Full Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="e.g. Mounesh Kumaran"
+              required
+            />
+          </div>
+
+          <div class="field-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="you@example.com"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-group">
+            <label for="phone">Phone (optional)</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              placeholder="+91 98765 43210"
+            />
+          </div>
+
+          <div class="field-group">
+            <label for="subject">Subject</label>
+            <input
+              type="text"
+              id="subject"
+              name="subject"
+              placeholder="How can we help you?"
+            />
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label for="message">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Write your message here..."
+            required
+          ></textarea>
+        </div>
+
+        <div class="btn-row">
+          <button type="submit">Send Message</button>
+          <span class="note">We usually reply within 24 hours.</span>
+        </div>
+      </form>
+    </div>
+
+    <!-- Right: Info Panel -->
+    <div class="right">
+      <div class="info-block">
+        <div class="status-pill">
+          <span class="status-dot"></span>
+          Typically replies quickly
+        </div>
+        <h2>Contact Information</h2>
+        <p>
+          Prefer email or direct call? You can also reach us using the
+          details below.
+        </p>
+
+        <div class="info-item">
+          <div class="info-label">Email</div>
+          <div class="info-value">support@nextgenstudio.dev</div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-label">Phone</div>
+          <div class="info-value">+91 98765 43210</div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-label">Office</div>
+          <div class="info-value">Coimbatore · Tamil Nadu · India</div>
+        </div>
+      </div>
+
+      <div class="info-block">
+        <div class="info-label">Social</div>
+        <div class="social-row">
+          <span class="pill">Instagram</span>
+          <span class="pill">LinkedIn</span>
+          <span class="pill">GitHub</span>
+          <span class="pill">Twitter</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
