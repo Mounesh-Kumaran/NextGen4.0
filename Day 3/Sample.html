@@ -1,135 +1,133 @@
-<!DOCTYPE html> <!-- Tells the browser this is an HTML5 document -->
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" /> <!-- Supports all languages and special characters -->
-  <title>Learning HTML Tags with Map (Explained)</title>
+  <meta charset="UTF-8" />
+  <title>Learning HTML Tags</title>
 </head>
 
 <body>
 
-  <!-- ================= HEADER SECTION ================= -->
+  <!-- 1) header -->
   <header>
-    <h1>🌐 Learn HTML Semantic & Advanced Tags</h1> <!-- <h1> is the main heading -->
+    <h1>🌐 Learn HTML Semantic & Advanced Tags</h1>
   </header>
 
-  <!-- Navigation menu created using <nav> -->
+  <!-- 2) nav -->
   <nav>
     <a href="#intro">Introduction</a> |
-    <a href="#map">Interactive Map</a>
+    <a href="#content">Main Content</a> |
+    <a href="#team">Team</a> |
+    <a href="#contact">Contact</a>
   </nav>
-  <hr> <!-- Horizontal line divider -->
+  <hr>
 
-  <!-- ================= MAIN CONTENT ================= -->
-  <main id="intro"> <!-- <main> holds the most important content -->
+  <!-- 3) main -->
+  <main id="intro">
     <h2>What is HTML?</h2>
-
-    <!-- <abbr> shows full form when hovered -->
     <p>
-      HTML stands for <abbr title="HyperText Markup Language">HTML</abbr>.
+      HTML stands for 
+      <!-- 4) abbr -->
+      <abbr title="HyperText Markup Language">HTML</abbr>. 
+      It helps structure webpages.
     </p>
 
-    <!-- <mark> highlights text -->
-    <p><mark>Important:</mark> HTML structures webpages.</p>
+    <!-- 5) mark -->
+    <p><mark>Important:</mark> HTML gives meaning and structure to a webpage.</p>
 
-    <!-- <time> represents dates/times for browsers and search engines -->
-    <p>Updated on <time datetime="2025-11-27">Nov 27, 2025</time></p>
+    <!-- 6) time -->
+    <p>This page was last updated on <time datetime="2025-11-27">Nov 27, 2025</time>.</p>
 
-    <!-- <figure> groups an image with a caption -->
+    <!-- 7) figure, 8) figcaption -->
     <figure>
       <img src="https://via.placeholder.com/200" alt="Example Image">
-      <!-- <figcaption> adds a label to the image -->
-      <figcaption>This is an example image.</figcaption>
+      <figcaption>A placeholder image inside a figure tag.</figcaption>
     </figure>
 
-    <!-- Expandable/collapsible content using <details> and <summary> -->
+    <!-- 9) details & 10) summary -->
     <details>
       <summary>Click to learn more</summary>
-      HTML works with <b>CSS</b> and <i>JavaScript</i> to build full webpages.
+      HTML works with <b>CSS</b> and <i>JavaScript</i> to create full websites.
     </details>
   </main>
 
   <hr>
 
-  <!-- ================= SECTION WITH INTERACTIVE TAGS ================= -->
-  <section>
-    <!-- <progress> shows progress bar -->
+  <!-- 11) section -->
+  <section id="content">
+    <h2>Useful UI Tags</h2>
+
+    <!-- 12) progress -->
     <p>Learning Progress:</p>
-    <progress value="65" max="100"></progress> 65%
+    <progress value="80" max="100"></progress> 80%
 
-    <!-- <meter> shows measured value -->
-    <p>Skill Confidence: <meter value="0.6">60%</meter></p>
+    <!-- 13) meter -->
+    <p>Skill Confidence: <meter value="0.7">70%</meter></p>
 
-    <!-- <kbd> shows keyboard shortcuts -->
-    <p>Press <kbd>CTRL + S</kbd> to save.</p>
-
-    <!-- <code> shows code in mono font -->
+    <!-- 14) code, 15) kbd -->
+    <p>To save a file press <kbd>CTRL + S</kbd></p>
     <p>Example Code: <code>&lt;h1&gt;Hello&lt;/h1&gt;</code></p>
 
-    <!-- <samp> shows output of a program -->
-    <p>Program Output: <samp>Success!</samp></p>
+    <!-- 16) samp -->
+    <p>Program Output Example: <samp>Hello User!</samp></p>
 
-    <!-- <output> is for displaying calculated results -->
-    <output>₹500</output>
+    <!-- 17) output -->
+    <p>Total Price: <output>₹999</output></p>
 
-    <!-- <wbr> tells browser where a long word can break -->
-    <p>LongWordExample<wbr>BreakHere</p>
+    <!-- 18) wbr -->
+    <p>LongWordExampleToShow<wbr>WhereWordBreaks</p>
   </section>
 
   <hr>
 
-  <!-- ================= ARTICLE (INDEPENDENT CONTENT) ================= -->
-  <article>
-    <h2>Team Information</h2>
+  <!-- 19) article -->
+  <article id="team">
+    <h2>Team Member List</h2>
 
-    <!-- <bdi> handles text direction differences (useful for Arabic/Hebrew) -->
-    <p>Created by: <bdi>मूनेश</bdi> (Mounesh)</p>
+    <!-- 20) dl, 21) dt, 22) dd (optional extra meaningful tags) -->
+    <dl>
+      <dt>Developer</dt>
+      <dd>Builds features & websites.</dd>
+    </dl>
+
+    <!-- Using the <bdi> for mixed text direction -->
+    <p>Created by: <bdi>مونيش</bdi> (Mounesh)</p>
   </article>
 
-  <!-- <aside> holds extra info like advertisements or tips -->
+  <hr>
+
+  <!-- 23) aside -->
   <aside>
-    <p>This is extra sidebar information.</p>
+    <p>This is extra information shown like a sidebar.</p>
   </aside>
 
-  <!-- <del> and <ins> show revised content -->
-  <p>Old Price: <del>₹1599</del> → New Price: <ins>₹999</ins></p>
+  <!-- 24) del & 25) ins -->
+  <p>Old Price: <del>₹1999</del> → New Price: <ins>₹999</ins></p>
+
+  <!-- 26) picture -->
+  <picture>
+    <source srcset="https://via.placeholder.com/100" media="(max-width:600px)">
+    <img src="https://via.placeholder.com/200" alt="Responsive Image">
+  </picture>
+
+  <!-- 27) dialog -->
+  <dialog open>This is a dialog (popup) tag.</dialog>
+
+  <!-- 28) template -->
+  <template>This will not display, but JavaScript can use it later.</template>
+
+  <!-- 29) map & 30) area -->
+  <h3>Clickable Image Map Example</h3>
+  <img src="https://via.placeholder.com/300" usemap="#image-map" alt="Mapped Image">
+
+  <map name="image-map">
+    <area shape="rect" coords="34,44,270,350" href="#" alt="Clickable Area">
+  </map>
 
   <hr>
 
-  <!-- ================= IMAGE MAP (INTERACTIVE) ================= -->
-  <section id="map">
-    <h2>Interactive India Map</h2>
-    <p>Click a region to learn more.</p>
-
-    <!-- The image where clickable areas are applied -->
-    <img src="https://upload.wikimedia.org/wikipedia/commons/2/20/India-locator-map-blank.svg"
-         width="500"
-         usemap="#india-map"
-         alt="India Map">
-
-    <!-- <map> creates clickable regions on the image -->
-    <map name="india-map">
-      
-      <!-- Each <area> defines a clickable hotspot -->
-      <area shape="circle" coords="255,140,10" href="https://en.wikipedia.org/wiki/Delhi" target="_blank" alt="Delhi">
-      <area shape="circle" coords="220,240,15" href="https://en.wikipedia.org/wiki/Maharashtra" target="_blank" alt="Maharashtra">
-      <area shape="circle" coords="270,330,15" href="https://en.wikipedia.org/wiki/Tamil_Nadu" target="_blank" alt="Tamil Nadu">
-      <area shape="circle" coords="330,170,15" href="https://en.wikipedia.org/wiki/West_Bengal" target="_blank" alt="West Bengal">
-      <area shape="circle" coords="260,160,15" href="https://en.wikipedia.org/wiki/Uttar_Pradesh" target="_blank" alt="Uttar Pradesh">
-    
-    </map>
-  </section>
-
-  <hr>
-
-  <!-- <dialog> creates a popup box -->
-  <dialog open>This is a dialog popup.</dialog>
-
-  <!-- <template> stores hidden HTML for JavaScript -->
-  <template>This content is hidden unless used by JS.</template>
-
-  <!-- ================= FOOTER ================= -->
-  <footer>
-    <p>📧 Email: hello@example.com</p>
+  <!-- footer -->
+  <footer id="contact">
+    <p>📧 Contact: hello@example.com</p>
     <p>© 2025 Learn HTML Project</p>
   </footer>
 
