@@ -1,0 +1,137 @@
+<!DOCTYPE html> <!-- Tells the browser this is an HTML5 document -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /> <!-- Supports all languages and special characters -->
+  <title>Learning HTML Tags with Map (Explained)</title>
+</head>
+
+<body>
+
+  <!-- ================= HEADER SECTION ================= -->
+  <header>
+    <h1>🌐 Learn HTML Semantic & Advanced Tags</h1> <!-- <h1> is the main heading -->
+  </header>
+
+  <!-- Navigation menu created using <nav> -->
+  <nav>
+    <a href="#intro">Introduction</a> |
+    <a href="#map">Interactive Map</a>
+  </nav>
+  <hr> <!-- Horizontal line divider -->
+
+  <!-- ================= MAIN CONTENT ================= -->
+  <main id="intro"> <!-- <main> holds the most important content -->
+    <h2>What is HTML?</h2>
+
+    <!-- <abbr> shows full form when hovered -->
+    <p>
+      HTML stands for <abbr title="HyperText Markup Language">HTML</abbr>.
+    </p>
+
+    <!-- <mark> highlights text -->
+    <p><mark>Important:</mark> HTML structures webpages.</p>
+
+    <!-- <time> represents dates/times for browsers and search engines -->
+    <p>Updated on <time datetime="2025-11-27">Nov 27, 2025</time></p>
+
+    <!-- <figure> groups an image with a caption -->
+    <figure>
+      <img src="https://via.placeholder.com/200" alt="Example Image">
+      <!-- <figcaption> adds a label to the image -->
+      <figcaption>This is an example image.</figcaption>
+    </figure>
+
+    <!-- Expandable/collapsible content using <details> and <summary> -->
+    <details>
+      <summary>Click to learn more</summary>
+      HTML works with <b>CSS</b> and <i>JavaScript</i> to build full webpages.
+    </details>
+  </main>
+
+  <hr>
+
+  <!-- ================= SECTION WITH INTERACTIVE TAGS ================= -->
+  <section>
+    <!-- <progress> shows progress bar -->
+    <p>Learning Progress:</p>
+    <progress value="65" max="100"></progress> 65%
+
+    <!-- <meter> shows measured value -->
+    <p>Skill Confidence: <meter value="0.6">60%</meter></p>
+
+    <!-- <kbd> shows keyboard shortcuts -->
+    <p>Press <kbd>CTRL + S</kbd> to save.</p>
+
+    <!-- <code> shows code in mono font -->
+    <p>Example Code: <code>&lt;h1&gt;Hello&lt;/h1&gt;</code></p>
+
+    <!-- <samp> shows output of a program -->
+    <p>Program Output: <samp>Success!</samp></p>
+
+    <!-- <output> is for displaying calculated results -->
+    <output>₹500</output>
+
+    <!-- <wbr> tells browser where a long word can break -->
+    <p>LongWordExample<wbr>BreakHere</p>
+  </section>
+
+  <hr>
+
+  <!-- ================= ARTICLE (INDEPENDENT CONTENT) ================= -->
+  <article>
+    <h2>Team Information</h2>
+
+    <!-- <bdi> handles text direction differences (useful for Arabic/Hebrew) -->
+    <p>Created by: <bdi>मूनेश</bdi> (Mounesh)</p>
+  </article>
+
+  <!-- <aside> holds extra info like advertisements or tips -->
+  <aside>
+    <p>This is extra sidebar information.</p>
+  </aside>
+
+  <!-- <del> and <ins> show revised content -->
+  <p>Old Price: <del>₹1599</del> → New Price: <ins>₹999</ins></p>
+
+  <hr>
+
+  <!-- ================= IMAGE MAP (INTERACTIVE) ================= -->
+  <section id="map">
+    <h2>Interactive India Map</h2>
+    <p>Click a region to learn more.</p>
+
+    <!-- The image where clickable areas are applied -->
+    <img src="https://upload.wikimedia.org/wikipedia/commons/2/20/India-locator-map-blank.svg"
+         width="500"
+         usemap="#india-map"
+         alt="India Map">
+
+    <!-- <map> creates clickable regions on the image -->
+    <map name="india-map">
+      
+      <!-- Each <area> defines a clickable hotspot -->
+      <area shape="circle" coords="255,140,10" href="https://en.wikipedia.org/wiki/Delhi" target="_blank" alt="Delhi">
+      <area shape="circle" coords="220,240,15" href="https://en.wikipedia.org/wiki/Maharashtra" target="_blank" alt="Maharashtra">
+      <area shape="circle" coords="270,330,15" href="https://en.wikipedia.org/wiki/Tamil_Nadu" target="_blank" alt="Tamil Nadu">
+      <area shape="circle" coords="330,170,15" href="https://en.wikipedia.org/wiki/West_Bengal" target="_blank" alt="West Bengal">
+      <area shape="circle" coords="260,160,15" href="https://en.wikipedia.org/wiki/Uttar_Pradesh" target="_blank" alt="Uttar Pradesh">
+    
+    </map>
+  </section>
+
+  <hr>
+
+  <!-- <dialog> creates a popup box -->
+  <dialog open>This is a dialog popup.</dialog>
+
+  <!-- <template> stores hidden HTML for JavaScript -->
+  <template>This content is hidden unless used by JS.</template>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <p>📧 Email: hello@example.com</p>
+    <p>© 2025 Learn HTML Project</p>
+  </footer>
+
+</body>
+</html>
